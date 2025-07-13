@@ -1,16 +1,38 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Semester 5 Notes</title>
+  <title>Semester 5 Subjects</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #121212;
-      color: #fff;
+      color: white;
       padding: 20px;
     }
-    h1 { text-align: center; }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .subject {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #61dafb;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .subject:hover {
+      background-color: #333;
+    }
     .toggle {
       position: fixed;
       top: 20px;
@@ -21,59 +43,31 @@
       border: none;
       cursor: pointer;
     }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 20px 0;
-      font-size: 16px;
-    }
-    .note-list a {
-      display: block;
-      background: #1f1f1f;
-      padding: 12px;
-      margin: 8px 0;
-      text-decoration: none;
-      color: #61dafb;
-      border-radius: 6px;
-    }
-    .note-list a:hover {
-      background: #333;
-    }
   </style>
 </head>
 <body>
   <button class="toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
-  <h1>Semester 5 Notes</h1>
-  <input type="text" id="search" placeholder="Search subject..." onkeyup="filterNotes()">
+  <h1>Semester 5 Subjects</h1>
+  <div class="container">
+    <a class="subject" href="FiniteElementMethod/">FiniteElementMethod</a>
+    <a class="subject" href="DesignOfMachineElements/">DesignOfMachineElements</a>
+    <a class="subject" href="HeatTransfer/">HeatTransfer</a>
+    <a class="subject" href="OperationResearch/">OperationResearch</a>
+    <a class="subject" href="MechanicalMeasurementControl/">MechanicalMeasurementControl</a>
+    <a class="subject" href="IndustrialAutomationRobotics/">IndustrialAutomationRobotics</a>
+    <a class="subject" href="IAR_Lab/">IAR Lab</a>
+    <a class="subject" href="MMC_Lab/">MMC Lab</a>
+    <a class="subject" href="HeatTransferLab/">HeatTransferLab</a>
+    <a class="subject" href="Training_II/">Training II</a>
+    <a class="subject" href="Mentoring/">Mentoring</a>
 
-  <div class="note-list" id="notes">
-    <a href="FiniteElementMethod.pdf">Finite Element Method</a>
-    <a href="DesignOfMachineElements.pdf">Design of Machine Elements</a>
-    <a href="HeatTransfer.pdf">Heat Transfer</a>
-    <a href="OperationResearch.pdf">Operation Research</a>
-    <a href="MechanicalMeasurementControl.pdf">Mechanical Measurement and Control</a>
-    <a href="IndustrialAutomationRobotics.pdf">Industrial Automation and Robotics</a>
-    <a href="IAR_Lab.pdf">Industrial Automation and Robotics Laboratory</a>
-    <a href="MMC_Lab.pdf">Mechanical Measurement and Control Laboratory</a>
-    <a href="HeatTransferLab.pdf">Heat Transfer Laboratory</a>
-    <a href="Training_II.pdf">Training - II</a>
-    <a href="Mentoring.pdf">Mentoring and Professional Development</a>
   </div>
-
   <script>
     function toggleTheme() {
       const body = document.body;
       const dark = body.style.backgroundColor === "white";
       body.style.backgroundColor = dark ? "#121212" : "white";
       body.style.color = dark ? "#fff" : "black";
-    }
-
-    function filterNotes() {
-      const input = document.getElementById("search").value.toLowerCase();
-      const links = document.querySelectorAll(".note-list a");
-      links.forEach(link => {
-        link.style.display = link.textContent.toLowerCase().includes(input) ? "block" : "none";
-      });
     }
   </script>
 </body>
